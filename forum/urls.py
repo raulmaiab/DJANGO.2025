@@ -1,6 +1,7 @@
 from django.urls import path
 
 from . import views
+from django.urls import include
 
 app_name = 'forum'
 urlpatterns = [
@@ -15,6 +16,6 @@ urlpatterns = [
     # ex: /forum/5/resposta/
     path("<int:pergunta_id>/resposta/",
          views.InserirRespostaView.as_view(), name="inserir_resposta"),
-
+    path('forum/', include('forum.urls')),
 ]
 
